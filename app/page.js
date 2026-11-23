@@ -1,43 +1,16 @@
-'use client'
-
-import { useEffect } from 'react'
-import Navigation from '@/components/Navigation'
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Experience from '@/components/Experience'
-import Skills from '@/components/Skills'
-import Projects from '@/components/Projects'
-import Education from '@/components/Education'
-import Contact from '@/components/Contact'
-import dynamic from 'next/dynamic'
-import Footer from '@/components/Footer'
-
-const VoiceAssistant = dynamic(() => import('@/components/VoiceAssistant'), {
-  ssr: false,
-})
-
-export default function Home() {
-  useEffect(() => {
-    // Set default theme
-    const currentTheme = localStorage.getItem('theme') || 'dark'
-    document.documentElement.setAttribute('data-theme', currentTheme)
-  }, [])
-
-  return (
-    <>
-      <Navigation />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
-      <VoiceAssistant />
-    </>
-  )
-}
-
+const roles = [
+ ['2023 — Present','Lead Backend Engineer','Pilgrim Consulting Group · TechHalo.ai','Multi-tenant AI infrastructure, secure APIs, document ingestion, and event-driven services on AWS.'],
+ ['2021 — 2022','Full Stack Developer','TGL Systems','High-volume electricity vending APIs, payment integrations, and automated reconciliation on Azure.'],
+ ['2020 — 2021','Senior Software Engineer','Axis Pension Group · Primus-Tech','Loan management and USSD pension access serving more than 100,000 users.'],
+ ['2019 — 2021','Senior Software Engineer','CediPay / Hisense Ghana','Mobile money transfers, merchant payments, and real-time merchant experiences.']
+]
+export default function Home(){return <>
+<a className="skip" href="#main">Skip to content</a>
+<header><a className="brand" href="#home">isaac<span>.</span></a><nav aria-label="Main navigation"><a href="#projects">Selected work</a><a href="#experience">Experience</a><a href="#about">About</a></nav><a className="nav-contact" href="mailto:gyasinimako.gh@gmail.com">Let’s talk</a></header>
+<main id="main"><section className="hero" id="home"><div className="hero-copy"><p className="eyebrow">ISAAC GYASI NIMAKO · SOFTWARE ENGINEER</p><h1>Behind every great product,<br/>a <em>strong foundation.</em></h1><p className="intro">I build the systems that make ambitious ideas work. Backend engineering, cloud architecture, and AI platforms — built with care, designed to scale.</p><div className="actions"><a className="button" href="#projects">Explore my work</a><a className="text-link" href="https://github.com/Nimako">GitHub</a></div><p className="location">Based in Accra, Ghana · Open to new opportunities</p></div><div className="portrait"><img src="/isaac.png" alt="Isaac Gyasi Nimako"/><div className="portrait-caption"><span>Engineer. Builder. Problem solver.</span><span>ACCRA, GH</span></div></div></section>
+<div className="expertise-strip"><span>Enterprise SaaS</span><span>Distributed systems</span><span>FinTech & payments</span><span>AI infrastructure</span></div>
+<section id="projects"><div className="section-heading"><div><p className="eyebrow">SELECTED WORK</p><h2>Complex systems.<br/><em>Real-world impact.</em></h2></div><p>A few of the platforms I’ve helped bring to life, from enterprise intelligence to everyday payments.</p></div><article className="project"><div className="project-art ai-art" aria-label="Conceptual diagram of the TechHalo platform"><span className="diagram-label">ARCHITECTURE / ENTERPRISE AI</span><div className="nodes"><span>Documents</span><i>│</i><strong>TechHalo<span>.ai</span></strong><i>│</i><div><span>Knowledge</span><span>Workflows</span><span>Voice</span></div></div><small>Conceptual architecture illustration</small></div><div className="project-copy"><p className="eyebrow">ENTERPRISE AI PLATFORM</p><h3>Intelligence, connected.</h3><p>TechHalo.ai brings enterprise knowledge, automated workflows, and AI-assisted voice processing together. I architected the middleware connecting frontend clients with AI engines, with multi-tenancy and role-based access at its core.</p><div className="tags"><span>ASP.NET Core</span><span>RabbitMQ</span><span>Redis</span><span>AWS</span></div><details><summary>Engineering details</summary><p>OAuth2-secured REST APIs, automated document ingestion, and event-driven microservices deployed as Dockerized services on AWS.</p></details></div></article>
+<article className="project"><div className="project-art payment-art"><span className="diagram-label">INFRASTRUCTURE / UTILITY PAYMENTS</span><div className="payment-symbol">ϟ</div><strong>Powering the everyday.</strong><div className="payment-flow"><span>Payment</span><span>Validation</span><span>Electricity</span></div><small>Conceptual payment flow illustration</small></div><div className="project-copy"><p className="eyebrow">ECG ELECTRICITY VENDING SYSTEM</p><h3>Reliability at every step.</h3><p>Mission-critical infrastructure for prepaid and postpaid electricity purchases. Secure payment integrations, vendor APIs, and automated reconciliation keep high-volume transactions moving.</p><div className="tags"><span>C#</span><span>Azure APIM</span><span>Azure App Services</span></div><details><summary>Engineering details</summary><p>Backend optimization and caching, real-time transaction validation, and continuous delivery through GitHub Actions.</p></details></div></article></section>
+<section id="experience"><div className="section-heading"><div><p className="eyebrow">THE JOURNEY</p><h2>Built on experience.</h2></div><p>Hands-on engineering and technical leadership across AI, financial services, and utility infrastructure.</p></div><div className="roles">{roles.map(([date,title,company,description])=><article className="role" key={company}><p className="date">{date}</p><div><h3>{title}</h3><p className="company">{company}</p><p>{description}</p></div></article>)}</div></section>
+<section id="about" className="about"><div><p className="eyebrow">A LITTLE ABOUT ME</p><h2>Thoughtful engineering.<br/><em>Lasting foundations.</em></h2></div><div><p>I’m Isaac, a backend and full stack engineer with 9+ years of experience building enterprise software. My work sits where reliable infrastructure meets useful products.</p><p>I care about clear communication, mentorship, and steady improvement. I enjoy owning a problem from the first architecture conversation through to production.</p><h3 className="stack-heading">Tools of the trade</h3><div className="tags"><span>C# / ASP.NET Core</span><span>Node.js</span><span>Python</span><span>React</span><span>SQL / PostgreSQL</span><span>Redis</span><span>AWS / Azure</span><span>Docker</span></div><div className="education"><p className="eyebrow">EDUCATION · KOFORIDUA TECHNICAL UNIVERSITY</p><p>B.Tech. Telecommunication Engineering <span>2015–2017</span></p><p>B.Sc. Computer Science <span>2011–2015</span></p></div></div></section>
+<section id="contact" className="contact"><p className="eyebrow">HAVE SOMETHING IN MIND?</p><h2>Let’s build something<br/><em>that matters.</em></h2><a className="button" href="mailto:gyasinimako.gh@gmail.com">Get in touch</a><a className="email" href="mailto:gyasinimako.gh@gmail.com">gyasinimako.gh@gmail.com</a></section></main><footer><a className="brand" href="#home">isaac<span>.</span></a><p>© {new Date().getFullYear()} Isaac Gyasi Nimako</p><div><a href="https://github.com/Nimako">GitHub</a><a href="tel:+233244274699">Call me</a></div></footer></>}
